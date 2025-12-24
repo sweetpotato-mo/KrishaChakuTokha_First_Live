@@ -1,12 +1,11 @@
 "use client";
 
-import { getAssetPath } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 
 const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoSrc, setVideoSrc] = useState<string>("/chaku-pulling.mp4");
+  const [videoSrc, setVideoSrc] = useState<string>("./chaku-pulling.mp4");
   const [isMobile, setIsMobile] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
 
@@ -27,8 +26,8 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Set video source based on environment
-    setVideoSrc(getAssetPath("/chaku-pulling.mp4"));
+    // Set video source
+    setVideoSrc("./chaku-pulling.mp4");
   }, []);
 
   useEffect(() => {
@@ -106,20 +105,20 @@ const Hero: React.FC = () => {
           <div
             className="w-full h-full object-cover relative z-0"
             style={{
-              backgroundImage: `url(${getAssetPath("/chaku-pulling.png")})`,
+              backgroundImage: `url(./chaku-pulling.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               filter: "brightness(0.75) contrast(1.1) sepia(0.1)",
             }}
           />
         ) : (
-        <video
+          <video
             ref={videoRef}
             src={videoSrc}
-          autoPlay
-          loop
-          muted
-          playsInline
+            autoPlay
+            loop
+            muted
+            playsInline
             preload="auto"
             webkit-playsinline="true"
             x-webkit-airplay="allow"
@@ -145,7 +144,7 @@ const Hero: React.FC = () => {
             }}
           >
             Your browser does not support the video tag.
-        </video>
+          </video>
         )}
         {/* Fallback gradient background for when video doesn't load - behind video */}
         <div className="absolute inset-0 bg-gradient-to-br from-masi-black via-hyangu-red to-masi-black -z-10" />
@@ -167,15 +166,18 @@ const Hero: React.FC = () => {
             <span className="lang-ne">
               टोखाको मौलिकता,
               <br />
-              <span className="text-antique-gold">
-                चार पुस्ताको पौरख
-              </span>
+              <span className="text-antique-gold">चार पुस्ताको पौरख</span>
             </span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-parchment/90 mb-12 font-light">
-            <span className="lang-en">A 4th-generation artisanal tradition from Tokha-3, Dekwo, Kathmandu</span>
-            <span className="lang-ne">पुस्तौंदेखि जोगाउँदै ल्याइएको टोखा-३, देक्वोको रैथाने कला</span>
+            <span className="lang-en">
+              A 4th-generation artisanal tradition from Tokha-3, Dekwo,
+              Kathmandu
+            </span>
+            <span className="lang-ne">
+              पुस्तौंदेखि जोगाउँदै ल्याइएको टोखा-३, देक्वोको रैथाने कला
+            </span>
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -204,7 +206,7 @@ const Hero: React.FC = () => {
           >
             <ChevronDown size={32} />
           </button>
-      </div>
+        </div>
       </div>
     </section>
   );

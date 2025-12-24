@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { getAssetPath } from "@/lib/utils";
 import { X } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
 interface Product {
   name: string;
@@ -21,7 +20,7 @@ const products: Product[] = [
       "The purest form of Chaku, made with traditional methods and no additives.",
     descriptionNe:
       "कुनै मिसावट बिना परम्परागत विधिबाट तयार पारिएको शुद्ध चाकु।",
-    image: "/sada-chaku.jpg",
+    image: "./sada-chaku.jpg",
     color: "from-parchment to-parchment/80",
   },
   {
@@ -30,7 +29,7 @@ const products: Product[] = [
     description:
       "Infused with aromatic spices, a celebration of Newari flavors.",
     descriptionNe: "सुगन्धित मसलाहरूको मिश्रणले भरिएको नेवारी स्वादको उत्सव।",
-    image: "/masala-chaku.jpg",
+    image: "./masala-chaku.jpg",
     color: "from-hyangu-red/20 to-hyangu-red/10",
   },
   {
@@ -38,9 +37,8 @@ const products: Product[] = [
     nameNe: "खुवा चाकु",
     description:
       "Rich and creamy, enhanced with traditional Khuwa for a luxurious texture.",
-    descriptionNe:
-      "विशेष खुवाको मिश्रणले थपिएको शाही स्वाद र नरम बनावट।",
-    image: "/khuwa-chaku.jpg",
+    descriptionNe: "विशेष खुवाको मिश्रणले थपिएको शाही स्वाद र नरम बनावट।",
+    image: "./khuwa-chaku.jpg",
     color: "from-antique-gold/20 to-antique-gold/10",
   },
   {
@@ -48,8 +46,9 @@ const products: Product[] = [
     nameNe: "सुत्केरी चाकु",
     description:
       "A restorative blend with ginger, fenugreek, and traditional herbs, crafted specifically for maternal health and strength.",
-    descriptionNe: "परम्परागत जडिबुटीहरूको मिश्रण, विशेष गरी सुत्केरीको स्वास्थ्य र शक्तिका लागि तयार पारिएको।",
-    image: "/sutkeri-chaku.jpg",
+    descriptionNe:
+      "परम्परागत जडिबुटीहरूको मिश्रण, विशेष गरी सुत्केरीको स्वास्थ्य र शक्तिका लागि तयार पारिएको।",
+    image: "./sutkeri-chaku.jpg",
     color: "from-masi-black/10 to-masi-black/5",
   },
   {
@@ -57,8 +56,9 @@ const products: Product[] = [
     nameNe: "कालो तिलको लड्डु (हाम्वः)",
     description:
       "A traditional winter delicacy made from toasted sesame seeds and our signature Tokha Chaku. Known locally as 'Hamwo,' these nutrient-dense spheres offer a deep flavor and a satisfying crunch.",
-    descriptionNe: "भुटेको  तिल र हाम्रो विशेष टोखा चाकुबाट बनाइएको परम्परागत जाडोको परिकार। स्थानीय भाषामा 'हाम्वः' भनिने यो लड्डु पोषणले भरिपूर्ण र स्वादिलो हुन्छ।",
-    image: "/kalo_til.jpg",
+    descriptionNe:
+      "भुटेको  तिल र हाम्रो विशेष टोखा चाकुबाट बनाइएको परम्परागत जाडोको परिकार। स्थानीय भाषामा 'हाम्वः' भनिने यो लड्डु पोषणले भरिपूर्ण र स्वादिलो हुन्छ।",
+    image: "./kalo_til.jpg",
     color: "from-masi-black/10 to-masi-black/5",
   },
   {
@@ -66,17 +66,19 @@ const products: Product[] = [
     nameNe: "सेतो तिलको लड्डु (तिलौरा)",
     description:
       "Delicate white sesame seeds blended with sugar to create a lighter, aromatic treat. These classic sweets are an essential part of the Maghe Sankranti ritual, symbolizing warmth and community.",
-    descriptionNe: "सेतो तिल र चिनीको मिश्रणबाट बनाइएको हलुका र सुगन्धित मिठाइ। माघे सङ्क्रान्तिको अभिन्न अङ्ग मानिने यो लड्डु न्यानोपन र सद्भावको प्रतीक हो।",
-    image: "/seto_til.jpg",
+    descriptionNe:
+      "सेतो तिल र चिनीको मिश्रणबाट बनाइएको हलुका र सुगन्धित मिठाइ। माघे सङ्क्रान्तिको अभिन्न अङ्ग मानिने यो लड्डु न्यानोपन र सद्भावको प्रतीक हो।",
+    image: "./seto_til.jpg",
     color: "from-parchment to-parchment/80",
   },
   {
     name: "Pustakari",
     nameNe: "पुस्तकारी",
     description:
-      "Tokha's famous slow-cooked \"hard candy,\" prepared by reducing milk, sugar, and Chaku to a rich, fudge-like consistency. Infused with coconut, dates, and cardamom, it is a timeless testament to Newari confectionery.",
-    descriptionNe: "दूध, खुवा र चाकुलाई घण्टौंसम्म पकाएर बनाइएको टोखाको प्रसिद्ध 'हार्ड क्यान्डी'। नरिबल, छोकडा र सुकुमेलको सुगन्धले भरिएको यो नेवारी मिठाइ कलाको एक जीवन्त नमुना हो।",
-    image: "/pustakari.jpg",
+      'Tokha\'s famous slow-cooked "hard candy," prepared by reducing milk, sugar, and Chaku to a rich, fudge-like consistency. Infused with coconut, dates, and cardamom, it is a timeless testament to Newari confectionery.',
+    descriptionNe:
+      "दूध, खुवा र चाकुलाई घण्टौंसम्म पकाएर बनाइएको टोखाको प्रसिद्ध 'हार्ड क्यान्डी'। नरिबल, छोकडा र सुकुमेलको सुगन्धले भरिएको यो नेवारी मिठाइ कलाको एक जीवन्त नमुना हो।",
+    image: "./pustakari.jpg",
     color: "from-antique-gold/20 to-antique-gold/10",
   },
 ];
@@ -113,8 +115,15 @@ const ProductShowcase: React.FC = () => {
           <div className="bg-masi-black text-parchment p-4 md:p-6 rounded-lg shadow-2xl border-2 border-hyangu-red max-w-sm">
             <div className="flex items-start justify-between gap-4">
               <p className="text-sm md:text-base leading-relaxed flex-1">
-                <span className="lang-en">The detailed ritual guide for this variety is being curated and is not available yet. In the meantime, feel free to contact us regarding your requirements using the form below.</span>
-                <span className="lang-ne">यो खण्ड हाल निर्माणधिन छ। केही सोधपुछ भएमा कृपया तलको फारम प्रयोग गर्नुहोला।</span>
+                <span className="lang-en">
+                  The detailed ritual guide for this variety is being curated
+                  and is not available yet. In the meantime, feel free to
+                  contact us regarding your requirements using the form below.
+                </span>
+                <span className="lang-ne">
+                  यो खण्ड हाल निर्माणधिन छ। केही सोधपुछ भएमा कृपया तलको फारम
+                  प्रयोग गर्नुहोला।
+                </span>
               </p>
               <button
                 onClick={() => setShowToast(false)}
@@ -134,8 +143,14 @@ const ProductShowcase: React.FC = () => {
             <span className="lang-ne">हाम्रा उत्पादनहरू</span>
           </h2>
           <p className="heading-serif text-lg text-masi-black/90 italic max-w-2xl mx-auto">
-            <span className="lang-en font-medium">A curated selection of varieties, each crafted with the same dedication to tradition and purity.</span>
-            <span className="lang-ne font-medium">परम्परा र शुद्धताप्रति उत्तिकै समर्पित भई तयार पारिएका  उत्पादनहरू :</span>
+            <span className="lang-en font-medium">
+              A curated selection of varieties, each crafted with the same
+              dedication to tradition and purity.
+            </span>
+            <span className="lang-ne font-medium">
+              परम्परा र शुद्धताप्रति उत्तिकै समर्पित भई तयार पारिएका उत्पादनहरू
+              :
+            </span>
           </p>
         </div>
 
@@ -147,9 +162,13 @@ const ProductShowcase: React.FC = () => {
             >
               {/* Product Image */}
               <div className="relative h-64 bg-gradient-to-br from-masi-black via-hyangu-red/20 to-masi-black overflow-hidden">
-                <div 
-                  className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" 
-                  style={{ backgroundImage: `url(${getAssetPath(product.image || '/placeholder-chaku.jpg')})` }}
+                <div
+                  className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                  style={{
+                    backgroundImage: `url(${
+                      product.image || "./placeholder-chaku.jpg"
+                    })`,
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-masi-black/60 via-transparent to-transparent" />
               </div>
@@ -179,7 +198,7 @@ const ProductShowcase: React.FC = () => {
               </div>
             </div>
           ))}
-          
+
           {/* Coming Soon Card */}
           <div className="group relative bg-parchment/40 border-2 border-dashed border-hyangu-red/30 hover:border-hyangu-red/50 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in">
             {/* Icon Area */}
@@ -207,27 +226,42 @@ const ProductShowcase: React.FC = () => {
                 <span className="lang-ne">संकलन जारी छ...</span>
               </h3>
               <p className="text-masi-black/60 text-sm leading-relaxed">
-                <span className="lang-en">A legacy this deep cannot be captured in a single glance. Our full product catalogue is being curated and will be available here soon.</span>
-                <span className="lang-ne">यो गहिरो विरासतलाई एकै नजरमा समेट्न सकिँदैन। हाम्रा अन्य उत्पादनहरूको सूची संकलन भइरहेको छ र चाँडै उपलब्ध हुनेछ।</span>
+                <span className="lang-en">
+                  A legacy this deep cannot be captured in a single glance. Our
+                  full product catalogue is being curated and will be available
+                  here soon.
+                </span>
+                <span className="lang-ne">
+                  यो गहिरो विरासतलाई एकै नजरमा समेट्न सकिँदैन। हाम्रा अन्य
+                  उत्पादनहरूको सूची संकलन भइरहेको छ र चाँडै उपलब्ध हुनेछ।
+                </span>
               </p>
             </div>
           </div>
         </div>
 
         {/* Inquiry Form Section - Partner with Heritage */}
-        <div id="inquiry-section" className="mt-8 sm:mt-12 p-6 sm:p-8 md:p-10 glassmorphism rounded-xl border border-antique-gold/30 text-center shadow-2xl">
+        <div
+          id="inquiry-section"
+          className="mt-8 sm:mt-12 p-6 sm:p-8 md:p-10 glassmorphism rounded-xl border border-antique-gold/30 text-center shadow-2xl"
+        >
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-parchment mb-3 sm:mb-4 heading-serif px-2">
             <span className="lang-en">Partner with Tokha&apos;s Legacy</span>
             <span className="lang-ne">टोखा चाकुसँग जोडिनुहोस्</span>
           </h3>
           <p className="text-parchment/70 mb-6 sm:mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed px-2">
             <span className="lang-en">
-              Whether you are a local retailer, an international exporter, or planning a grand celebration, 
-              we invite you to bring the authentic warmth of Shree Krishna Tokha Chaku to your community. 
-              Please share your requirements through our official inquiry portal.
+              Whether you are a local retailer, an international exporter, or
+              planning a grand celebration, we invite you to bring the authentic
+              warmth of Shree Krishna Tokha Chaku to your community. Please
+              share your requirements through our official inquiry portal.
             </span>
             <span className="lang-ne">
-              चाहे तपाईं स्थानीय बिक्रेता हुनुहुन्छ, अन्तर्राष्ट्रिय निर्यातकर्ता, वा कुनै उत्सवको योजना बनाउँदै हुनुहुन्छ—हामी तपाईंलाई श्री कृष्ण टोखा चाकुको मौलिक न्यानोपन आफ्नो समुदायसम्म पुर्‍याउन निमन्त्रणा गर्दछौं। कृपया आफ्नो आवश्यक्ताहरू हाम्रो आधिकारिक सोधपुछ पोर्टल मार्फत साझा गर्नुहोस्।
+              चाहे तपाईं स्थानीय बिक्रेता हुनुहुन्छ, अन्तर्राष्ट्रिय
+              निर्यातकर्ता, वा कुनै उत्सवको योजना बनाउँदै हुनुहुन्छ—हामी
+              तपाईंलाई श्री कृष्ण टोखा चाकुको मौलिक न्यानोपन आफ्नो समुदायसम्म
+              पुर्‍याउन निमन्त्रणा गर्दछौं। कृपया आफ्नो आवश्यक्ताहरू हाम्रो
+              आधिकारिक सोधपुछ पोर्टल मार्फत साझा गर्नुहोस्।
             </span>
           </p>
           <a
@@ -244,8 +278,14 @@ const ProductShowcase: React.FC = () => {
         {/* Purity Badge */}
         <div className="text-center border-t-2 border-hyangu-red/30 pt-8 mt-8">
           <p className="text-masi-black/70 text-sm tracking-wide uppercase">
-            <span className="lang-en">Traditionally Crafted. SO<sub>2</sub> Free. No Added Colors or Preservatives.</span>
-            <span className="lang-ne">परम्परागत विधिबाट उत्पादित। SO<sub>2</sub> मुक्त। कुनै अतिरिक्त रङ्ग वा संरक्षक तत्व नभएको।</span>
+            <span className="lang-en">
+              Traditionally Crafted. SO<sub>2</sub> Free. No Added Colors or
+              Preservatives.
+            </span>
+            <span className="lang-ne">
+              परम्परागत विधिबाट उत्पादित। SO<sub>2</sub> मुक्त। कुनै अतिरिक्त
+              रङ्ग वा संरक्षक तत्व नभएको।
+            </span>
           </p>
         </div>
       </div>
