@@ -1,7 +1,7 @@
 /**
  * Base path for GitHub Pages
  */
-const BASE_PATH = '/Shree_Krishna_Chaku';
+const BASE_PATH = '/KrishaChakuTokha_First_Live';
 
 /**
  * Get asset path - works for both development and production

@@ -9,8 +9,8 @@ export function Favicon() {
 
     // Determine basePath based on current location
     const isGitHubPages = window.location.hostname.includes('github.io') || 
-                          window.location.pathname.startsWith('/Shree_Krishna_Chaku');
-    const basePath = isGitHubPages ? '/Shree_Krishna_Chaku' : '';
+                          window.location.pathname.startsWith('/KrishaChakuTokha_First_Live');
+    const basePath = isGitHubPages ? '/KrishaChakuTokha_First_Live' : '';
 
     // Small delay to ensure DOM is ready
     setTimeout(() => {
