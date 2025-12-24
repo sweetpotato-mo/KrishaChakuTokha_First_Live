@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Mukta:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hyangu-red: #8b0000;
+  --masi-black: #1a1a1a;
+  --parchment: #f5f2ea;
+  --antique-gold: #d4af37;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: var(--parchment);
+  color: var(--masi-black);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hyangu-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b0000;
+}
+
+/* Heritage typography */
+.heading-serif {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Ensure all headings use Playfair Display */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+.nepali-text {
+  font-family: "Mukta", sans-serif;
+}
+
+/* Slightly larger font size for Nepali text in navigation */
+nav .nepali-text {
+  font-size: 0.9375rem; /* 15px - slightly larger than text-sm (14px) */
+}
+
+/* Glassmorphism utility */
+.glassmorphism {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Floating Newari Frame - Double border */
+.newari-frame {
+  border-bottom: 4px solid var(--hyangu-red);
+  position: relative;
+}
+
+.newari-frame::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--masi-black);
+}
+
+/* Tiki Jhyā pattern overlay */
+.tiki-jhya-overlay {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Bold header pattern */
+.tiki-jhya-header {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Simple transitions */
+.simple-hover {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Persistent navigation header */
+nav[class*="fixed"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Fade-in animation for coming soon card */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-in-out forwards;
+}
+
+/* Slide-in-right animation for toast notifications */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+/* Language Toggle Styles */
+/* Default state (Nepali) */
+.lang-en {
+    display: none !important;
+}
+.lang-ne {
+    display: block; /* or inline-block depending on context */
+}
+
+/* Inline elements should use inline display */
+span.lang-en,
+span.lang-ne {
+    display: inline;
+}
+
+/* English State (when body doesn't have nepali-mode) */
+body:not(.nepali-mode) .lang-en {
+    display: block !important;
+}
+body:not(.nepali-mode) .lang-ne {
+    display: none !important;
+}
+
+body:not(.nepali-mode) span.lang-en {
+    display: inline !important;
+}
+
+/* Attention Glow Animation for Language Toggle */
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(139, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(139, 0, 0, 0); }
+}
+
+.initial-glow {
+  animation: pulse-red 1.5s infinite;
+  z-index: 1050;
+  border-radius: 4px;
+  position: relative;
+}
+
+.initial-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 4px;
+  pointer-events: none;
+}
